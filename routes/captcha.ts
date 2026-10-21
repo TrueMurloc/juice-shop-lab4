@@ -19,7 +19,18 @@ export function captchas () {
     const secondOperator = operators[Math.floor((Math.random() * 3))]
 
     const expression = firstTerm.toString() + firstOperator + secondTerm.toString() + secondOperator + thirdTerm.toString()
-    const answer = eval(expression).toString() // eslint-disable-line no-eval
+    const parts = expression.split(' ');
+    const num1 = parseInt(parts[0], 10);
+    const operator = parts[1];
+    const num2 = parseInt(parts[2], 10);
+
+    let answerVal = 0;
+    if (operator === '+') answerVal = num1 + num2;
+    else if (operator === '-') answerVal = num1 - num2;
+    else if (operator === '*') answerVal = num1 * num2;
+    else if (operator === '/') answerVal = num1 / num2;
+
+const answer = answerVal.toString();
 
     const captcha = {
       captchaId,
