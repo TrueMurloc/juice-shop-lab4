@@ -229,5 +229,11 @@
         "esbuild@0.28.1": true,
         "@scarf/scarf": false,
         "cypress@15.17.0": true
+    },
+    "overrides": {
+    "jsonwebtoken": "^9.0.0",
+    "express-jwt": {
+      "jsonwebtoken": "^9.0.0"
     }
+  }
 }
